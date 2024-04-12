@@ -15,11 +15,11 @@
           <div>
             <img class="chat-icon" src="icons/eyes.gif" alt="chatbox" />
           </div>
-          LOGIN
+          SIGN UP
         </h1>
       </header>
       <main class="login-main">
-        <form id="enter-chat" action="chat.html">
+        <form id="enter-chat" method="POST" action="/signup">
           <div class="form-control">
             <label for="username">Username</label>
             <input
@@ -39,19 +39,8 @@
                 required
               />
           </div>
-          <div class="form-control">
-            <label for="room">Room</label>
-            <select name="room" id="room">
-              <option value="Music">Music</option>
-              <option value="Books">Books</option>
-              <option value="Movies">Movies</option>
-              <option value="Games">Games</option>
-              <option value="Sport">Sport</option>
-              <option value="Art">Art</option>
-            </select>
-          </div>
-          <button type="submit" class="btn">LOGIN</button>
-          <a href="/signup.html" class="link">Don't Have an account?</a>
+          <button type="submit" class="btn">SIGN UP</button>
+          <a href="/" class="link">Already Have an account?</a>
         </form>
         <img class="chat-gif" src="icons/animated.gif" alt="chatbox" />
       </main>

@@ -228,3 +228,8 @@ select {
     display: none;
   }
 }
+
+.link {
+  margin-top: 10px;
+  display: block;
+}
