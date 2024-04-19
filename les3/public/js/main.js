@@ -1,25 +1,29 @@
 const socket = io();
+const params = new URLSearchParams(window.location.search);
 
-const chatForm = document.getElementById("chat-form");
-console.log(chatForm);
-
-chatForm.addEventListener("submit", (e)=>{
-  e.preventDefault()
-  const msg = e.target.elements.msg.value
-  e.target.elements.msg.value=''
-  e.target.elements.msg.focus()
-  socket.emit('chatMsg', msg)
-});
-
-function outputMsg (m){ 
-	const div = document.createElement('div') 
-	const container = document.querySelector(".chat-messages"); 	div.classList.add('message');
-	div.innerHTML = `<p class='meta'>${m.username} 	<span>${m.time}</span></p><p class='text'>${m.message}</p>`; 	
-  container.appendChild(div);
+const token = params.get("token");
+console.log(token)
+if (token) {
+  localStorage.setItem("token", token); 
 }
 
-socket.on('message', (data)=>{
-  outputMsg(data);
+const chatForm = document.getElementById("chat-form");
+chatForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const msg = e.target.elements.msg.value;
+  e.target.elements.msg.value = "";
+  e.target.elements.msg.focus();
+  socket.emit("chatMsg", msg);
+});
+function outputMsg(data) {
+  const div = document.createElement("div");
   const container = document.querySelector(".chat-messages");
-  container.scrollTop = container.scrollHeight;
+  div.classList.add("message");
+
+  div.innerHTML = `<p class='meta'>${data.username}
+<span>${data.time}</span></p><p class='text'>${data.message}</p>`;
+  container.appendChild(div);
+}
+socket.on("message", (data) => {
+  outputMsg(data);
 });

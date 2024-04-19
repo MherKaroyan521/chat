@@ -9,7 +9,7 @@
     <title>Ba-chat-A</title>
   </head>
   <body>
-    <div id="displayMessages"></div>
+    <div id="displayMessage"></div>
     <div class="login-container">
       <header class="login-header">
         <h1>
@@ -20,7 +20,7 @@
         </h1>
       </header>
       <main class="login-main">
-        <form id="enter-chat" action="chat.html">
+        <form id="enter-chat" method="post" action="/login">
           <div class="form-control">
             <label for="username">Username</label>
             <input
@@ -30,15 +30,16 @@
               placeholder="Enter username..."
               required
             />
-            <div class="form-control">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter password..."
-                required
-              />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password..."
+              required
+            />
           </div>
           <div class="form-control">
             <label for="room">Room</label>
@@ -52,11 +53,13 @@
             </select>
           </div>
           <button type="submit" class="btn">LOGIN</button>
-          <a href="/signup.html" class="link">Don't Have an account?</a>
+          <div>
+            Not registered yet?<a href="/signup.html">Go to Signup page</a>
+          </div>
         </form>
         <img class="chat-gif" src="icons/animated.gif" alt="chatbox" />
       </main>
     </div>
+    <script src="./js/msgStatus.js"></script>
   </body>
 </html>
-<script src="./js/msgstatus.js"></script>

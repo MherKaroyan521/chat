@@ -218,6 +218,13 @@ select {
   width: 100%;
   padding: 15px;
 }
+#displayMessage{
+  height: 20px;
+  width: 100%;
+  margin:auto;
+  text-align: center;
+  font-weight: 600;
+}
 
 @media (max-width: 700px) {
   .chat-main {
@@ -227,17 +234,4 @@ select {
   .chat-sidebar {
     display: none;
   }
-}
-
-.link {
-  margin-top: 10px;
-  display: block;
-}
-
-#displayMessages {
-  height: 20px;
-  font-weight: 600;
-  width: 100%;
-  margin: auto;
-  text-align: center;
 }

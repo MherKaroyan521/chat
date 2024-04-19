@@ -9,14 +9,14 @@
     <title>Ba-chat-A</title>
   </head>
   <body>
-    <div id="displayMessages"></div>
+    <div id="displayMessage"></div>
     <div class="login-container">
       <header class="login-header">
         <h1>
           <div>
             <img class="chat-icon" src="icons/eyes.gif" alt="chatbox" />
           </div>
-          SIGN UP
+          SIGNUP
         </h1>
       </header>
       <main class="login-main">
@@ -30,22 +30,23 @@
               placeholder="Enter username..."
               required
             />
-            <div class="form-control">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter password..."
-                required
-              />
           </div>
-          <button type="submit" class="btn">SIGN UP</button>
-          <a href="/" class="link">Already Have an account?</a>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password..."
+              required
+            />
+          </div>
+          <button type="submit" class="btn">SIGNUP</button>
+          <div>Already registered?<a href="/">Go to login page</a></div>
         </form>
         <img class="chat-gif" src="icons/animated.gif" alt="chatbox" />
       </main>
     </div>
+    <script src="./js/msgStatus.js"></script>
   </body>
 </html>
-<script src="./js/msgstatus.js"></script>
