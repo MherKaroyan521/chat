@@ -26,4 +26,27 @@ function outputMsg(data) {
 }
 socket.on("message", (data) => {
   outputMsg(data);
+  var objDiv = document.querySelector(".chat-messages");
+  objDiv.scrollTop = objDiv.scrollHeight;
 });
+
+socket.on("userInRoom", (data) => {
+  console.log(data)
+  let room = document.getElementById("room-name");
+  let users = document.getElementById("users");
+  room.innerHTML = data.room;
+  data.userslist.forEach(user => {
+    let name = document.createElement("p")
+    name.innerHTML = user.username
+    users.appendChild(name);
+  });
+});
+
+document.getElementById("leave-btn").addEventListener("click", () => {
+  const leaveroom = confirm("DO YOU WANNA LEAVE");
+  if(leaveroom){
+    window.location = "../index.html"
+  }
+})
+
+socket.emit("JoinRoom", token)

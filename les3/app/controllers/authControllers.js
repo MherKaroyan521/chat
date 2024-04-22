@@ -3,6 +3,7 @@ const path = require("path");
 const { hashPass, comparePass } = require("../utils/bcrypt")
 const jwt = require("jsonwebtoken");
 const uuid = require("uuid"); 
+require("dotenv").config();
 const JWT_SECRET_KEY = process.env.MY_CUSTOM_SECRET_KEY;
 
 const usersFilePath = path.join(__dirname, "../../public/users.json");
