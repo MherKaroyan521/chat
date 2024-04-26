@@ -19,13 +19,13 @@ const initilizqateSocket = (server)=>{
         const {username, room} = decoded;
         let user = userJoin(socket.id, username, room)
         socket.join(user.room);
-        console.log(user.room)
+        
         io.to(user.room).emit("usersInRoom", {
           room: user.room,
           userslist: getRoomUsers(user.room)
         });
         socket.emit("message", formatMessage("BOT", `welcome ${user.username}!`));
-        socket.broadcast.emit(
+        io.to(user.room).emit(
           "message",
           formatMessage("BOT", `A ${user.username} just connected!`)
         );
@@ -40,15 +40,16 @@ const initilizqateSocket = (server)=>{
   
     socket.on("disconnect", () => {
       const user = userLeave(socket.id)
+      console.log(user, 1231243)
       if(user){
-        io.to(user.room).emit("message", formatMessages("BOT", `${user.username} has just left!`))
+        io.to(user.room).emit("message", formatMessage("BOT", `${user.username} has just left!`))
+        io.to(user.room).emit('usersInRoom', {
+          room:user.room,
+          usersList:getRoomUsers(user.room)
+        })
       };
-      io.to(user.room).emit('usersInRoom', {
-        room:user.room,
-        usersList:getRoomUsers(user.room)
-      })
     });
-
-
+  })
+}
 
 module.exports = initilizqateSocket;

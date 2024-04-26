@@ -30,11 +30,11 @@ socket.on("message", (data) => {
   objDiv.scrollTop = objDiv.scrollHeight;
 });
 
-socket.on("userInRoom", (data) => {
-  console.log(data)
+socket.on("usersInRoom", (data) => {
   let room = document.getElementById("room-name");
   let users = document.getElementById("users");
   room.innerHTML = data.room;
+  users.innerHTML = "";
   data.userslist.forEach(user => {
     let name = document.createElement("p")
     name.innerHTML = user.username

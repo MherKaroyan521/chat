@@ -16,10 +16,11 @@ const userLeave = (id) => {
   const index = users.findIndex((user) => {
     return user.id = id
   })
+  let user = users[index]; 
   if(index !== -1){
     users.splice(index, 1)[0]
   }
-  console.log(users)
+  return user;
 }
 
 const getRoomUsers = (room) => {

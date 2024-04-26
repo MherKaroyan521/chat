@@ -10,6 +10,7 @@ const initilizqateSocket = require("./app/socket/socketHandler")
 const app = express();
 const server = http.createServer(app);
 const io = socket(server);
+const port = 3002
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +19,6 @@ app.use("/", authRoutes);
 initilizqateSocket(server);
 
 
-server.listen(3000, () => {
-  console.log("Server listens to port 3000");
+server.listen(port, () => {
+  console.log(`Server listens to port ${port}`);
 });
