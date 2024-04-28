@@ -2,8 +2,8 @@
 
 :root {
   --primary: #1c1c1c;
-  --secondary: #34eaf0;
-  --light: #c5c864;
+  --secondary: #34eaf07c;
+  --light: #c5c86434;
 }
 
 * {
@@ -137,6 +137,7 @@ a {
   color: var(--primary);
   opacity: 0.7;
   margin-bottom: 7px;
+  display: inline;
 }
 
 .chat-messages .message .meta span {
@@ -150,7 +151,7 @@ a {
 
 .chat-form-container form {
   display: flex;
-   align-items: center; /* Vertically center items */
+  align-items: center; /* Vertically center items */
   /* justify-content: center; */
 }
 input,
@@ -171,7 +172,7 @@ select {
 /* login Page */
 .login-container {
   max-width: 700px;
-  margin: 80px auto;
+  margin: 10% auto;
   color: #fff;
 }
 
@@ -218,13 +219,6 @@ select {
   width: 100%;
   padding: 15px;
 }
-#displayMessage{
-  height: 20px;
-  width: 100%;
-  margin:auto;
-  text-align: center;
-  font-weight: 600;
-}
 
 @media (max-width: 700px) {
   .chat-main {
@@ -234,4 +228,31 @@ select {
   .chat-sidebar {
     display: none;
   }
+}
+
+#displayMessage {
+  height: 20px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-weight: 600;
+}
+
+.img-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }

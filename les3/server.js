@@ -1,24 +1,22 @@
 const express = require("express");
 const path = require("path");
 const http = require("http");
-const socket = require("socket.io");
-
 const bodyParser = require("body-parser");
-const authRoutes = require("./app/routes/authRoutes");
-const initilizqateSocket = require("./app/socket/socketHandler")
+const routes = require("./app/routes/routes");
+const initializeSocket = require("./app/socket/socketHandler");
+require("dotenv").config();
+
 
 const app = express();
 const server = http.createServer(app);
-const io = socket(server);
-const port = 3002
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/", authRoutes);
+app.use("/img", express.static(path.join(__dirname, "img")));
+app.use("/", routes);
 
-initilizqateSocket(server);
+initializeSocket(server);
 
-
-server.listen(port, () => {
-  console.log(`Server listens to port ${port}`);
+server.listen(3000, () => {
+  console.log("Server listens to port 3000");
 });

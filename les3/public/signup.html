@@ -9,18 +9,18 @@
     <title>Ba-chat-A</title>
   </head>
   <body>
-    <div id="displayMessage"></div>
+   <div id="displayMessage"></div>
     <div class="login-container">
       <header class="login-header">
         <h1>
           <div>
             <img class="chat-icon" src="icons/eyes.gif" alt="chatbox" />
           </div>
-          SIGNUP
+          SIGN UP
         </h1>
       </header>
       <main class="login-main">
-        <form id="enter-chat" method="POST" action="/signup">
+        <form id="enter-chat" method="POST",  action="/signup" enctype="multipart/form-data">
           <div class="form-control">
             <label for="username">Username</label>
             <input
@@ -41,12 +41,22 @@
               required
             />
           </div>
-          <button type="submit" class="btn">SIGNUP</button>
-          <div>Already registered?<a href="/">Go to login page</a></div>
+          <div class="form-control">
+            <label for="img" style="font-size: larger;cursor: pointer;">Profile image</label>
+            <input style="display: none;"
+              type="file"
+              name="img"
+              id="img"
+              accept="image/jpg, image/jpeg" 
+            />
+          </div>
+          <div class="img-container"></div>
+          <button type="submit" class="btn">Sign up</button>
+          <div>Have an account? <a class="goto" href="/">Go to login </a></div>
         </form>
         <img class="chat-gif" src="icons/animated.gif" alt="chatbox" />
       </main>
     </div>
-    <script src="./js/msgStatus.js"></script>
+     <script src="js/msgStatus.js"></script>
   </body>
 </html>

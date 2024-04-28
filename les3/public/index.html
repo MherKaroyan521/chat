@@ -20,7 +20,7 @@
         </h1>
       </header>
       <main class="login-main">
-        <form id="enter-chat" method="post" action="/login">
+        <form id="enter-chat"  method="POST",  action="/login">
           <div class="form-control">
             <label for="username">Username</label>
             <input
@@ -54,12 +54,12 @@
           </div>
           <button type="submit" class="btn">LOGIN</button>
           <div>
-            Not registered yet?<a href="/signup.html">Go to Signup page</a>
+            Don't have an account? <a class="goto" href="/signup.html">Register </a>
           </div>
         </form>
         <img class="chat-gif" src="icons/animated.gif" alt="chatbox" />
       </main>
     </div>
-    <script src="./js/msgStatus.js"></script>
+    <script src="js/msgStatus.js"></script>
   </body>
 </html>

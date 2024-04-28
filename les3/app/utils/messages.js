@@ -1,10 +1,20 @@
 const moment = require("moment");
+const formatMessages = (username, text, noavatar) => {
+  if(!noavatar){
+    return {
+      text: text,
+      username: username,
+      time: moment().format("h:mm a"),
+      noavatar: false
+    };
+  }else{
+    return {
+      text: text,
+      username: username,
+      time: moment().format("h:mm a"),
+      noavatar: true
+    };
+  }
 
-const formatMessage = (username, message) => {
-  return {
-    message: message,
-    username: username,
-    time: moment().format("h:mm a"),
-  };
 };
-module.exports = formatMessage;
+module.exports = formatMessages;
